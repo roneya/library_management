@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.xml.crypto.Data;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="card")
@@ -26,6 +26,26 @@ public class Card {
 
     public CardStatus getCardStatus() {
         return cardStatus;
+    }
+
+    @OneToMany( mappedBy = "card", cascade = CascadeType.ALL)
+    private List<Book> books;
+
+    public Card(int id, Date createdOn, Date updatedOn, CardStatus cardStatus, List<Book> books, Student student) {
+        this.id = id;
+        this.createdOn = createdOn;
+        this.updatedOn = updatedOn;
+        this.cardStatus = cardStatus;
+        this.books = books;
+        this.student = student;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
     public void setCardStatus(CardStatus cardStatus) {
