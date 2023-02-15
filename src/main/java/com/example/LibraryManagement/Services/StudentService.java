@@ -26,6 +26,17 @@ public class StudentService {
         studentRepository.save(student);
         return "Added";
     }
+    public String findNameByEmail (String email){
+    Student student =  studentRepository.findByEmail(email);
+     return student.getName();
+    }
 
+    public String updateMob(Student student){
+
+        Student student1 = studentRepository.findById(student.getId()).get();
+        student1.setMobNo(student.getMobNo());
+        studentRepository.save(student1);
+        return "Student has been updated successfully";
+    }
 
 }
