@@ -1,12 +1,10 @@
 package com.example.LibraryManagement.Controllers;
 
 import com.example.LibraryManagement.DTOs.AuthorEntryDto;
+import com.example.LibraryManagement.DTOs.AuthorResponseDto;
 import com.example.LibraryManagement.Services.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("author")
@@ -21,5 +19,11 @@ public class AuthorController {
     {
         return authorService.createAuthor(authorEntryDto);
 
+    }
+
+    @GetMapping("getAuthor")
+    public AuthorResponseDto getAuthor(@RequestParam Integer authorId)
+    {
+        return authorService.getAuthor(authorId);
     }
 }

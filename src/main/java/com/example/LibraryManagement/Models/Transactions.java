@@ -35,6 +35,14 @@ public class Transactions {
     @JoinColumn
     private Card card;
 
+    public Card getCard() {
+        return card;
+    }
+
+    public void setCard(Card card) {
+        this.card = card;
+    }
+
     public Transactions(){}
     public int getId() {
         return id;
