@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -87,4 +88,15 @@ public class Card {
     @OneToOne  //child
     @JoinColumn
     private Student student;
+
+    public List<Transactions> getTransactionsList() {
+        return transactionsList;
+    }
+
+    public void setTransactionsList(List<Transactions> transactionsList) {
+        this.transactionsList = transactionsList;
+    }
+
+    @OneToMany(mappedBy = "card", cascade = CascadeType.ALL)
+    private List<Transactions> transactionsList = new ArrayList<>();
 }

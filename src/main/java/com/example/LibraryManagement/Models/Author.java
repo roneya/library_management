@@ -15,7 +15,7 @@ public class Author {
 
     private String name;
 
-    private String age;
+    private int age;
 
     private String country;
 
@@ -24,7 +24,7 @@ public class Author {
     @OneToMany( mappedBy = "author", cascade = CascadeType.ALL )
     private List<Book> books;
 
-    public Author(int id, String name, String age, String country, double rating, List<Book> books) {
+    public Author(int id, String name, int age, String country, double rating, List<Book> books) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -50,11 +50,11 @@ public class Author {
         this.name = name;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 

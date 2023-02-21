@@ -2,6 +2,7 @@
 package com.example.LibraryManagement.Controllers;
 
 
+import com.example.LibraryManagement.DTOs.StudentUpdateMobRequestDto;
 import com.example.LibraryManagement.Models.Student;
 import com.example.LibraryManagement.Services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,9 @@ public class StudentController {
     }
 
        @PutMapping("/update_mob")
-               public String updateMob(@RequestBody Student student){
-        return  studentService.updateMob(student);
+               public String updateMob(@RequestBody StudentUpdateMobRequestDto studentUpdateMobRequestDto){
+
+        return  studentService.updateMob(studentUpdateMobRequestDto);
         }
     }
 

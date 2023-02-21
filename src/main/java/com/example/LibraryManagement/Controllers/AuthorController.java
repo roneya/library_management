@@ -1,6 +1,6 @@
 package com.example.LibraryManagement.Controllers;
 
-import com.example.LibraryManagement.Models.Author;
+import com.example.LibraryManagement.DTOs.AuthorEntryDto;
 import com.example.LibraryManagement.Services.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,9 +17,9 @@ public class AuthorController {
 
 
     @PostMapping("add")
-    public String addAuthor(@RequestBody Author author)
+    public String addAuthor(@RequestBody AuthorEntryDto authorEntryDto)
     {
-        return authorService.createAuthor(author);
+        return authorService.createAuthor(authorEntryDto);
 
     }
 }
