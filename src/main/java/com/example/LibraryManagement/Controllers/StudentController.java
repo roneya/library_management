@@ -16,6 +16,7 @@ public class StudentController {
     StudentService studentService;
 
     @PostMapping("/add")
+    @CrossOrigin(origins = "http://127.0.0.1:5500") //frontend address on local machine
     public String createStudent(@RequestBody Student student)
     {
         return studentService.createStudent(student);
