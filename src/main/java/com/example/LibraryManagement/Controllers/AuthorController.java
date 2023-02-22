@@ -15,6 +15,7 @@ public class AuthorController {
 
 
     @PostMapping("add")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     public String addAuthor(@RequestBody AuthorEntryDto authorEntryDto)
     {
         return authorService.createAuthor(authorEntryDto);

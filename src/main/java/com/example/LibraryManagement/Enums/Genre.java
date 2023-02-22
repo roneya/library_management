@@ -4,6 +4,7 @@ public enum Genre {
     FICTIONAL,
     PHILOSOPHY,
     ROMANTIC,
-    DRAMA
+    DRAMA,
+    SCIENCE
 
 }
