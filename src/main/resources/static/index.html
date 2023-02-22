@@ -1,56 +1,22 @@
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Input Form</title>
+    <title>Rohan's Library</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<h1>Add new Student form</h1>
-<form id="input-form">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name"><br>
+<nav>
+    <ul>
+        <div>
+            <h2> Rohan's Library</h2>
+        </div>
+        <div class="dd"><li><a href="html/student.html">Student</a></li>
+            <li><a href="html/book.html">Book</a></li>
+            <li><a href="html/author.html">Author</a></li>
+            <li><a href="#">Transaction</a></li>
+        </div>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email"><br>
-
-    <label for="mobNo">mobNo:</label>
-    <input type="tel" id="mobNo" name="mobNo"><br>
-
-    <label for="country">Country:</label>
-    <input type="text" id="country" name="country"><br>
-
-    <button type="submit">Submit</button>
-</form>
-
-<script>
-        const form = document.querySelector('#input-form');
-
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
-
-            const name = document.querySelector('#name').value;
-            const email = document.querySelector('#email').value;
-            const mobNo = document.querySelector('#mobNo').value;
-            const country = document.querySelector('#country').value;
-
-            const data = {
-                name: name.toString(),
-                email: email.toString(),
-                mobNo: mobNo.toString(),
-                country: country.toString()
-            };
-
-            fetch('http://localhost:8080/add', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            
-            
-        });
-    </script>
+    </ul>
+</nav>
 </body>
 </html>

@@ -1,51 +1,47 @@
-/* Apply some basic styles to the entire form */
-#input-form {
-  max-width: 500px;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background-color: #f1f1f1;
-}
-
-/* Apply some styles to the headings */
-h1 {
-  text-align: center;
-  margin-top: 0;
-}
-
-/* Style the labels and inputs */
-label {
-  display: block;
-  margin-bottom: 8px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"] {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-bottom: 16px;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus {
-  border: 1px solid #4CAF50;
-}
-
-/* Style the submit button */
-button[type="submit"] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button[type="submit"]:hover {
-  background-color: #45a049;
-}
+nav {
+    background-color: #333;
+    overflow: hidden;
+    
+    
+  }
+  
+  nav ul
+  {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:2em;
+    
+  }
+  nav ul div h2{
+    color: white;
+  }
+  .dd {
+    display:flex;
+    
+    justify-content:end;
+    align-items:center;
+    list-style-type: none;
+    margin-right: 6em;
+    gap: 2em;
+  }
+  
+  nav li {
+    float: left;
+  }
+  
+  nav li a {
+    font-size:1.5em;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  nav li a:hover {
+    background-color: #111;
+  }
+  
+  
+  
