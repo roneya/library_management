@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Input Form</title>
+    <link rel="stylesheet" href="/css/author.css">
+</head>
+<body>
+<h1>Add new Book form</h1>
+<form id="input-form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age"><br>
+
+    <label for="country">Country:</label>
+    <input type="text" id="country" name="country"><br>
+
+    <label for="rating">Rating:</label>
+    <input type="number" id="rating" name="rating"><br>
+    <div class="mid">
+
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+<script>
+        const form = document.querySelector('#input-form');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const name = document.querySelector('#name').value;
+            const age = document.querySelector('#age').value;
+            const country = document.querySelector('#country').value;
+            const rating = document.querySelector('#rating').value;
+
+            const data = {
+                name: name.toString(),
+                age: age,   //cz it is int
+                country: country.toString(), 
+                rating: rating  //double
+            };
+
+            fetch('http://localhost:8080/author/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            
+            
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Input Form</title>
+    <link rel="stylesheet" href="/css/book.css">
+</head>
+<body>
+<h1>Add new Book form</h1>
+<form id="input-form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br>
+
+    <label for="pages">Pages:</label>
+    <input type="number" id="pages" name="pages"><br>
+
+    <label for="genre">Genre:</label>
+    <input type="text" id="genre" name="genre"><br>
+
+    <label for="authorId">Author Id:</label>
+    <input type="number" id="authorId" name="authorId"><br>
+    <div class="mid">
+
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+<script>
+        const form = document.querySelector('#input-form');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const name = document.querySelector('#name').value;
+            const pages = document.querySelector('#pages').value;
+            const genre = document.querySelector('#genre').value;
+            const authorId= document.querySelector('#authorId').value;
+
+            const data = {
+                name: name.toString(),
+                pages: pages,   //cz it is int
+                genre: genre.toString().toUpperCase(), 
+                authorId: authorId
+            };
+
+            fetch('http://localhost:8080/book/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            
+            
+        });
+    </script>
+</body>
+</html>
