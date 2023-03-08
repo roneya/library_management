@@ -7,6 +7,7 @@ import com.example.LibraryManagement.Repositories.AuthorRepository;
 import com.example.LibraryManagement.Repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -37,5 +38,16 @@ public class BookService {
         authorRepository.save(author);
 
         return "Book Added";
+    }
+
+    public List<String> allBooks(){
+
+    return bookRepository.allBooks();
+    }
+
+
+
+    public List<String> subBooks(@RequestParam String sub){
+    return bookRepository.subBooks(sub);
     }
 }

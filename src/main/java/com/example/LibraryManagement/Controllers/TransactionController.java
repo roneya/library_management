@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/transactions")
+@RequestMapping("transactions")
 public class TransactionController {
 
     @Autowired
@@ -32,7 +32,7 @@ public class TransactionController {
     }
 
 
-    @PutMapping("payfine")
+    @PutMapping("payFine")
     public String payFine(@RequestParam int id){  //student's card id
         return transactionService.payFine(id);
     }

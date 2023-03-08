@@ -6,8 +6,10 @@ import com.example.LibraryManagement.DTOs.BookResponseDto;
 import com.example.LibraryManagement.Models.Author;
 import com.example.LibraryManagement.Models.Book;
 import com.example.LibraryManagement.Repositories.AuthorRepository;
+import com.example.LibraryManagement.Repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,9 @@ import java.util.List;
 public class AuthorService {
     @Autowired
     AuthorRepository authorRepository;
+
+    @Autowired
+    BookRepository bookRepository;
 
     public String createAuthor(AuthorEntryDto authorEntryDto){
 
@@ -52,5 +57,10 @@ public class AuthorService {
         authorResponseDto.setRating(author.getRating());
 
         return authorResponseDto;
+    }
+
+    public List<String> getBooks(@RequestParam Integer id)
+    {
+        return bookRepository.getBooks(id);
     }
 }
