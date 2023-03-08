@@ -4,7 +4,7 @@ import com.example.LibraryManagement.Enums.TransactionStatus;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -23,7 +23,7 @@ public class Transactions {
     private String transactionId = UUID.randomUUID().toString();
 
     @CreationTimestamp
-    private Date transactionDate;
+    private LocalDate transactionDate;
 
     private boolean isIssuedOperation;
 
@@ -76,11 +76,11 @@ public class Transactions {
         this.transactionId = transactionId;
     }
 
-    public Date getTransactionDate() {
+    public LocalDate getTransactionDate() {
         return transactionDate;
     }
 
-    public void setTransactionDate(Date transactionDate) {
+    public void setTransactionDate(LocalDate transactionDate) {
         this.transactionDate = transactionDate;
     }
 

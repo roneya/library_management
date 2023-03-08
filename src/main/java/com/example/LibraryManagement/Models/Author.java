@@ -10,7 +10,7 @@ import java.util.List;
 public class Author {
 
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
@@ -24,14 +24,7 @@ public class Author {
     @OneToMany( mappedBy = "author", cascade = CascadeType.ALL )
     private List<Book> books;
 
-    public Author(int id, String name, int age, String country, double rating, List<Book> books) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.country = country;
-        this.rating = rating;
-        this.books = books;
-    }
+
 
     public int getId() {
         return id;

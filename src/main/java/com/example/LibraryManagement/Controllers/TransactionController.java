@@ -20,6 +20,12 @@ public class TransactionController {
             return e.getMessage();
         }
     }
+    @PostMapping("submitBook")
+    public String submitBook(@RequestBody IssueBookRequestDto issueBookRequestDto){
+
+            return transactionService.submitBook(issueBookRequestDto);
+
+    }
 
     @GetMapping("getTransactionInfo")
     public String getTransactionEntry(@RequestParam Integer bookId, @RequestParam Integer cardId){

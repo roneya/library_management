@@ -5,6 +5,7 @@ import com.example.LibraryManagement.DTOs.StudentUpdateMobRequestDto;
 import com.example.LibraryManagement.Enums.CardStatus;
 import com.example.LibraryManagement.Models.Card;
 import com.example.LibraryManagement.Models.Student;
+import com.example.LibraryManagement.Repositories.CardRepository;
 import com.example.LibraryManagement.Repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,8 @@ public class StudentService {
 
     @Autowired
    StudentRepository studentRepository;
-
+    @Autowired
+    private CardRepository cardRepository;
 
 
     public String createStudent(Student student)
@@ -22,6 +24,7 @@ public class StudentService {
         Card card = new Card();
         card.setCardStatus(CardStatus.ACTIVATED);
         card.setStudent(student);
+        //cardRepository.save(card);
         student.setCard(card);
 
         studentRepository.save(student);
@@ -37,6 +40,7 @@ public class StudentService {
         Student student1 = studentRepository.findById(studentUpdateMobRequestDto.getId()).get();
         student1.setMobNo(studentUpdateMobRequestDto.getMobNo());
         studentRepository.save(student1);
+
         return "Student has been updated successfully";
     }
 
