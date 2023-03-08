@@ -16,4 +16,8 @@ public interface TransactionRepository extends JpaRepository<Transactions, Integ
     @Query(value = "select transaction_date from transactions where book_id=:bookId and card_id=:cardId and is_issued_operation=true limit 1 ", nativeQuery = true)
     LocalDate getLast(int bookId, int cardId);
 
+    @Query(value = "select * from transactions where card_id=:cardId and transaction_status='PENDING' limit 1 ", nativeQuery = true)
+    Transactions payFine(int cardId);
+
+
 }

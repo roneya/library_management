@@ -11,6 +11,7 @@ import com.example.LibraryManagement.Repositories.CardRepository;
 import com.example.LibraryManagement.Repositories.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -107,7 +108,7 @@ public class TransactionService {
         else transactions.setFine(days*10); //fine 10 rupees per day after 7 days
 
 
-        transactions.setTransactionStatus(TransactionStatus.SUCCESS);
+        transactions.setTransactionStatus(TransactionStatus.PENDING);  //to uniquely identify
         book.setIssued(false); //now its not issued but returned
         book.setCard(null);
 
@@ -130,7 +131,13 @@ public class TransactionService {
         return "Book has been submitted successfully";
     }
 
-
+    public String payFine(@RequestParam int id){   //pay fine
+        Transactions transactions = transactionRepository.payFine(id);
+        transactions.setFine(transactions.getFine()*-1);
+        transactions.setTransactionStatus(TransactionStatus.SUCCESS); //fine hogya
+        transactionRepository.save(transactions);
+        return "Your fine is paid";
+    }
 
 
 

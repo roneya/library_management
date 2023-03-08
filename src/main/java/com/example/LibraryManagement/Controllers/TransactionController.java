@@ -1,6 +1,7 @@
 package com.example.LibraryManagement.Controllers;
 
 import com.example.LibraryManagement.DTOs.IssueBookRequestDto;
+import com.example.LibraryManagement.Repositories.TransactionRepository;
 import com.example.LibraryManagement.Services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,9 @@ public class TransactionController {
 
     @Autowired
     TransactionService transactionService;
+    @Autowired
+    private TransactionRepository transactionRepository;
+
     @PostMapping("issuedBook")
     public String issueBook(@RequestBody IssueBookRequestDto issueBookRequestDto)
     {
@@ -25,6 +29,12 @@ public class TransactionController {
 
             return transactionService.submitBook(issueBookRequestDto);
 
+    }
+
+
+    @PutMapping("payfine")
+    public String payFine(@RequestParam int id){  //student's card id
+        return transactionService.payFine(id);
     }
 
     @GetMapping("getTransactionInfo")
